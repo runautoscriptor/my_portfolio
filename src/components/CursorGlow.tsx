@@ -58,13 +58,23 @@ export function CursorGlow() {
     <>
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-20 hidden h-[340px] w-[340px] rounded-full bg-cyan-300/10 blur-[100px] md:block"
+        className="pointer-events-none fixed left-0 top-0 z-20 hidden h-[340px] w-[340px] rounded-full blur-[100px] md:block"
         style={{ x: smoothGlowX, y: smoothGlowY }}
-      />
+      >
+        <span
+          className="block h-full w-full rounded-full"
+          style={{ background: 'var(--cursor-glow)' }}
+        />
+      </motion.div>
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-20 hidden h-4 w-4 rounded-full border border-cyan-100/40 bg-cyan-200/10 md:block"
-        style={{ x: smoothDotX, y: smoothDotY }}
+        className="pointer-events-none fixed left-0 top-0 z-20 hidden h-4 w-4 rounded-full md:block"
+        style={{
+          x: smoothDotX,
+          y: smoothDotY,
+          border: '1px solid var(--cursor-dot-border)',
+          background: 'var(--cursor-dot-bg)',
+        }}
       />
     </>
   );

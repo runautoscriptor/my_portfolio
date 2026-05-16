@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Premium portfolio for a Software Test Engineer specializing in manual, automation, mobile, and API testing."
+      content="ASoftware Test Engineer specializing in manual, automation, mobile, and API testing."
     />
     <meta
       name="keywords"
@@ -26,10 +26,19 @@
     <meta name="twitter:title" content="Software Test Engineer Portfolio" />
     <meta
       name="twitter:description"
-      content="Premium dark portfolio crafted for a Software Test Engineer transitioning into advanced Automation QA."
+      content="Modern QA portfolio featuring automation, exploratory testing, API validation, and mobile quality engineering."
     />
     <link rel="canonical" href="https://portfolio.demo/" />
-    <title>Software Test Engineer Portfolio</title>
+    <title> Vikas Kumar Singh</title>
+    <script>
+      (() => {
+        const themeKey = 'portfolio-theme';
+        const storedTheme = window.localStorage.getItem(themeKey);
+        const theme = storedTheme === 'light' ? 'light' : 'dark';
+        document.documentElement.classList.add(theme);
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

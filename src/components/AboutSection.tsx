@@ -7,8 +7,8 @@ import { SectionHeading } from './SectionHeading';
 
 export function AboutSection() {
   return (
-    <section id="about" className="section-anchor py-24">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+    <section id="about" className="section-anchor py-24 lg:py-28">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14 xl:gap-16 lg:text-lg  ">
         <motion.div
           variants={slideFromLeft}
           initial="hidden"
@@ -23,11 +23,11 @@ export function AboutSection() {
 
           <GlassPanel className="mt-8 rounded-[2rem] p-7">
             <div className="flex items-start gap-4">
-              <div className="rounded-2xl border border-cyan-300/18 bg-cyan-300/8 p-3 text-cyan-100">
+              <div className="theme-accent-icon rounded-2xl p-3">
                 <Target size={20} />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200/70">
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--accent-muted)]">
                   Career direction
                 </p>
                 <p className="mt-4 text-base leading-8 text-[var(--text-soft)]">
@@ -59,13 +59,13 @@ export function AboutSection() {
                 variants={fadeUp}
                 className="relative md:pl-12"
               >
-                <div className="absolute left-0 top-2 hidden h-8 w-8 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/10 text-xs font-semibold text-cyan-100 md:flex">
+                <div className="theme-accent-icon absolute left-0 top-2 hidden h-8 w-8 items-center justify-center rounded-full text-xs font-semibold md:flex">
                   {item.year.slice(0, 2)}
                 </div>
                 <GlassPanel className="rounded-[1.8rem] p-6">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-                    <h3 className="font-display text-2xl text-white">{item.title}</h3>
-                    <span className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200/65">
+                    <h3 className="font-display text-2xl text-[var(--text-heading)]">{item.title}</h3>
+                    <span className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent-muted)]">
                       {item.year}
                     </span>
                   </div>

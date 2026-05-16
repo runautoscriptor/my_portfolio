@@ -26,10 +26,10 @@ export function SectionHeading({
       whileInView="visible"
       viewport={{ once: true, amount: 0.35 }}
     >
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.38em] text-cyan-200/75">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.38em] text-[var(--accent-muted)]">
         {eyebrow}
       </p>
-      <h2 className="font-display text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-3xl leading-tight text-[var(--text-heading)] sm:text-4xl lg:text-4xl">
         {title}
       </h2>
       <p className="mt-5 text-sm leading-7 text-[var(--text-muted)] sm:text-base">

@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <div className="relative overflow-x-clip">
       <Header />
-      <main>
+      <main className="pb-4 lg:pb-6">
         <HeroSection />
         <AboutSection />
         <SkillsSection />

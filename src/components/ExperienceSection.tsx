@@ -7,7 +7,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="section-anchor py-24">
+    <section id="experience" className="section-anchor py-24 lg:py-28">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Experience"
@@ -20,7 +20,7 @@ export function ExperienceSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.18 }}
-          className="relative mt-12 space-y-8"
+          className="relative mt-12 space-y-8 lg:mt-14 lg:space-y-10"
         >
           <motion.div
             variants={lineReveal}
@@ -33,27 +33,27 @@ export function ExperienceSection() {
               variants={fadeUp}
               className="relative md:pl-12"
             >
-              <div className="absolute left-0 top-6 hidden h-8 w-8 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/10 text-cyan-100 md:flex">
+              <div className="theme-accent-icon absolute left-0 top-6 hidden h-8 w-8 items-center justify-center rounded-full md:flex">
                 <Briefcase size={16} />
               </div>
 
               <GlassPanel className="card-shine rounded-[2rem] p-6 sm:p-8">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/70">
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-muted)]">
                       {item.type}
                     </p>
-                    <h3 className="mt-3 font-display text-3xl text-white">{item.role}</h3>
-                    <p className="mt-2 text-lg text-slate-200">{item.company}</p>
+                    <h3 className="mt-3 font-display text-3xl text-[var(--text-heading)]">{item.role}</h3>
+                    <p className="mt-2 text-lg text-[var(--text-secondary)]">{item.company}</p>
                   </div>
 
                   <div className="grid gap-3 text-sm text-[var(--text-muted)] sm:grid-cols-2 lg:min-w-[16rem] lg:text-right">
                     <span className="inline-flex items-center gap-2 lg:justify-end">
-                      <Calendar size={16} className="text-cyan-200" />
+                      <Calendar size={16} className="text-[var(--accent-text)]" />
                       {item.period}
                     </span>
                     <span className="inline-flex items-center gap-2 lg:justify-end">
-                      <MapPin size={16} className="text-cyan-200" />
+                      <MapPin size={16} className="text-[var(--accent-text)]" />
                       {item.location}
                     </span>
                   </div>
@@ -67,22 +67,19 @@ export function ExperienceSection() {
                   <div className="space-y-3">
                     {item.achievements.map((achievement) => (
                       <div key={achievement} className="flex gap-3">
-                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-cyan-200" />
+                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-[var(--accent-text)]" />
                         <p className="text-sm leading-7 text-[var(--text-muted)]">{achievement}</p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200/70">
+                  <div className="theme-surface rounded-[1.6rem] p-5">
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--accent-muted)]">
                       Stack touched
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3">
                       {item.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200"
-                        >
+                        <span key={tech} className="theme-chip rounded-full px-3 py-2 text-sm">
                           {tech}
                         </span>
                       ))}

@@ -23,11 +23,11 @@ export function AnimatedStat({ stat }: AnimatedStatProps) {
       whileHover={{ y: -6 }}
       className="glass-panel rounded-[1.6rem] p-5"
     >
-      <p className="font-display text-4xl text-white sm:text-5xl">
+      <p className="font-display text-4xl text-[var(--text-heading)] sm:text-5xl">
         {count}
         {stat.suffix}
       </p>
-      <p className="mt-4 text-sm font-semibold text-slate-100">{stat.label}</p>
+      <p className="mt-4 text-sm font-semibold text-[var(--text-secondary)]">{stat.label}</p>
       <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{stat.description}</p>
     </motion.div>
   );

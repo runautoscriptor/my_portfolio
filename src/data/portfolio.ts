@@ -1,6 +1,7 @@
 export type SocialIcon = 'github' | 'linkedin' | 'mail';
 export type SkillIcon = 'manual' | 'automation' | 'mobile' | 'api';
 
+
 export interface NavItem {
   id: string;
   label: string;
@@ -65,10 +66,11 @@ export interface CertificationItem {
 }
 
 export const profile = {
-  name: 'Vikas Kumar Singh',
+  name: 'VIKAS KUMAR SINGH',
   role: 'Software Test Engineer',
+  image: new URL('../assets/vikaskumarsinghpic2026.png', import.meta.url).href,
   experience: '1+ years',
-  location: 'India',
+  location: 'Noida, India',
   email: 'vikaskumarsinghqa@gmail.com',
   heroTitle: 'I build release confidence through sharp testing instincts and scalable QA automation.',
   heroSummary:
@@ -90,7 +92,18 @@ export const navItems: NavItem[] = [
 export const heroPhrases = [
   'Validating every release with intent.',
   'Turning regression into reliable automation.',
-  'Designing QA systems that scale with product velocity.',
+  'Ensuring quality at every step.',
+  'Breaking builds before users do.',
+  'Automation that catches what matters.',
+  'Testing beyond happy paths.',
+  'Confidence in every deploy.',
+  'Shipping quality, not just code.',
+  'Where bugs meet their end.',
+  'Making releases production-ready.',
+  'Precision testing for real users.',
+  'Quality you can trust.',
+  'Finding issues before they grow.',
+  'Smart testing, faster delivery.',
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -202,7 +215,7 @@ export const experienceItems: ExperienceItem[] = [
   },
   {
     company: 'Infneon Technologies Private Limited',
-    role: 'QA Analyst',
+    role: 'QA Engineer Intern',
     period: '2025 - 2026',
     location: 'On-site',
     type: 'Internship',

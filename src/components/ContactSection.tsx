@@ -32,8 +32,8 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-anchor py-24 pb-16">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <section id="contact" className="section-anchor py-24 pb-16 lg:py-28 lg:pb-20">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14 xl:gap-16">
         <motion.div
           variants={staggerContainer(0.12)}
           initial="hidden"
@@ -49,14 +49,14 @@ export function ContactSection() {
           <motion.div variants={fadeUp} className="mt-8 space-y-4">
             <GlassPanel className="rounded-[1.8rem] p-5">
               <div className="flex items-start gap-4">
-                <div className="rounded-2xl border border-cyan-300/18 bg-cyan-300/10 p-3 text-cyan-100">
+                <div className="theme-accent-icon rounded-2xl p-3">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">Email</p>
+                  <p className="text-sm font-semibold text-[var(--text-heading)]">Email</p>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="mt-2 inline-block text-sm text-[var(--text-muted)] hover:text-cyan-100"
+                    className="mt-2 inline-block text-sm text-[var(--text-muted)] hover:text-[var(--accent-text)]"
                   >
                     {profile.email}
                   </a>
@@ -66,11 +66,11 @@ export function ContactSection() {
 
             <GlassPanel className="rounded-[1.8rem] p-5">
               <div className="flex items-start gap-4">
-                <div className="rounded-2xl border border-cyan-300/18 bg-cyan-300/10 p-3 text-cyan-100">
+                <div className="theme-accent-icon rounded-2xl p-3">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">Location</p>
+                  <p className="text-sm font-semibold text-[var(--text-heading)]">Location</p>
                   <p className="mt-2 text-sm text-[var(--text-muted)]">{profile.location}</p>
                 </div>
               </div>
@@ -93,12 +93,12 @@ export function ContactSection() {
           <GlassPanel className="rounded-[2rem] p-6 sm:p-8">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/70">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-muted)]">
                   Send a note
                 </p>
-                <h3 className="mt-3 font-display text-3xl text-white">Start the conversation</h3>
+                <h3 className="mt-3 font-display text-3xl text-[var(--text-heading)]">Start the conversation</h3>
               </div>
-              <div className="rounded-full border border-cyan-300/18 bg-cyan-300/10 p-3 text-cyan-100">
+              <div className="theme-accent-icon rounded-full p-3">
                 <Send size={18} />
               </div>
             </div>
@@ -106,7 +106,7 @@ export function ContactSection() {
             <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
               <div className="grid gap-5 md:grid-cols-2">
                 <label className="block">
-                  <span className="mb-2 block text-sm text-slate-200">Name</span>
+                  <span className="mb-2 block text-sm text-[var(--text-secondary)]">Name</span>
                   <input
                     required
                     type="text"
@@ -118,12 +118,12 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="Your name"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-cyan-300/30 focus:bg-white/7"
+                    className="theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block text-sm text-slate-200">Email</span>
+                  <span className="mb-2 block text-sm text-[var(--text-secondary)]">Email</span>
                   <input
                     required
                     type="email"
@@ -135,13 +135,13 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="you@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-cyan-300/30 focus:bg-white/7"
+                    className="theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none"
                   />
                 </label>
               </div>
 
               <label className="block">
-                <span className="mb-2 block text-sm text-slate-200">Message</span>
+                <span className="mb-2 block text-sm text-[var(--text-secondary)]">Message</span>
                 <textarea
                   required
                   rows={6}
@@ -153,14 +153,14 @@ export function ContactSection() {
                     }))
                   }
                   placeholder="Tell me about the role, team, or QA challenge you have in mind."
-                  className="w-full resize-none rounded-[1.6rem] border border-white/10 bg-white/5 px-4 py-3 text-sm leading-7 text-white outline-none transition-colors duration-300 placeholder:text-slate-500 focus:border-cyan-300/30 focus:bg-white/7"
+                  className="theme-input w-full resize-none rounded-[1.6rem] px-4 py-3 text-sm leading-7 outline-none"
                 />
               </label>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 transition-transform duration-300 hover:-translate-y-1"
+                  className="theme-primary-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:-translate-y-1"
                 >
                   Send Message
                   <Send size={16} />

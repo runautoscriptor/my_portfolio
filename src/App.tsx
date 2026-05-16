@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { BackgroundDecor } from './components/BackgroundDecor';
-import { CursorGlow } from './components/CursorGlow';
 import { LoaderScreen } from './components/LoaderScreen';
+import { SiteLayout } from './components/SiteLayout';
 import { HomePage } from './pages/HomePage';
 
 const APP_BOOT_DELAY = 2200;
@@ -21,10 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
-      <BackgroundDecor />
-      <CursorGlow />
-
+    <SiteLayout>
       <AnimatePresence mode="wait">
         {isBooting ? (
           <LoaderScreen key="loader" />
@@ -40,7 +36,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </SiteLayout>
   );
 }
 

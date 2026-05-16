@@ -13,7 +13,7 @@ const skillIconMap: Record<SkillIcon, typeof Bug> = {
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="section-anchor py-24">
+    <section id="skills" className="section-anchor py-24 lg:py-28">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Skills"
@@ -26,7 +26,7 @@ export function SkillsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.18 }}
-          className="mt-12 grid gap-5 lg:grid-cols-2"
+          className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6"
         >
           {skillCategories.map((category) => {
             const Icon = skillIconMap[category.icon];
@@ -40,17 +40,17 @@ export function SkillsSection() {
               >
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                   <div className="flex items-start gap-4">
-                    <div className="rounded-2xl border border-cyan-300/18 bg-cyan-300/10 p-3 text-cyan-100">
+                    <div className="theme-accent-icon rounded-2xl p-3">
                       <Icon size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/70">
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--accent-muted)]">
                         {category.badge}
                       </p>
-                      <h3 className="mt-3 font-display text-2xl text-white">{category.title}</h3>
+                      <h3 className="mt-3 font-display text-2xl text-[var(--text-heading)]">{category.title}</h3>
                     </div>
                   </div>
-                  <div className="h-1.5 w-full rounded-full bg-white/8 sm:max-w-[8rem]">
+                  <div className="h-1.5 w-full rounded-full bg-[var(--surface-strong)] sm:max-w-[8rem]">
                     <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-sky-400"
                       initial={{ scaleX: 0, originX: 0 }}
@@ -67,10 +67,7 @@ export function SkillsSection() {
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   {category.items.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200"
-                    >
+                    <span key={item} className="theme-chip rounded-full px-3 py-2 text-sm">
                       {item}
                     </span>
                   ))}

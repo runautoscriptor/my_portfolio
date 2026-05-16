@@ -18,12 +18,13 @@ export function BackgroundDecor() {
     <div aria-hidden className="pointer-events-none fixed inset-0 overflow-hidden">
       <div className="grid-backdrop absolute inset-0 opacity-40" />
       <div
-        className="absolute inset-0 opacity-[0.12]"
-        style={{ backgroundImage: `url(${noiseTexture})` }}
+        className="absolute inset-0"
+        style={{ backgroundImage: `url(${noiseTexture})`, opacity: 'var(--noise-opacity)' }}
       />
 
       <motion.div
-        className="absolute -left-16 top-20 h-72 w-72 rounded-full bg-cyan-400/20 blur-[120px]"
+        className="absolute -left-16 top-20 h-72 w-72 rounded-full blur-[120px]"
+        style={{ background: 'var(--decor-primary)' }}
         animate={
           prefersReducedMotion
             ? undefined
@@ -32,7 +33,8 @@ export function BackgroundDecor() {
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute right-[-4rem] top-[12%] h-80 w-80 rounded-full bg-teal-300/10 blur-[120px]"
+        className="absolute right-[-4rem] top-[12%] h-80 w-80 rounded-full blur-[120px]"
+        style={{ background: 'var(--decor-secondary)' }}
         animate={
           prefersReducedMotion
             ? undefined
@@ -41,7 +43,8 @@ export function BackgroundDecor() {
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-[-8rem] left-1/3 h-96 w-96 rounded-full bg-sky-500/8 blur-[140px]"
+        className="absolute bottom-[-8rem] left-1/3 h-96 w-96 rounded-full blur-[140px]"
+        style={{ background: 'var(--decor-tertiary)' }}
         animate={
           prefersReducedMotion
             ? undefined
@@ -53,8 +56,8 @@ export function BackgroundDecor() {
       {particles.map((particle) => (
         <motion.span
           key={`${particle.left}-${particle.top}`}
-          className="absolute h-1.5 w-1.5 rounded-full bg-cyan-200/30"
-          style={{ left: particle.left, top: particle.top }}
+          className="absolute h-1.5 w-1.5 rounded-full"
+          style={{ left: particle.left, top: particle.top, background: 'var(--particle-color)' }}
           animate={
             prefersReducedMotion
               ? undefined

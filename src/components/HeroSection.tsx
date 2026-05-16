@@ -31,9 +31,9 @@ export function HeroSection() {
   const typedPhrase = useTypingEffect(heroPhrases);
 
   return (
-    <section id="home" className="section-anchor flex min-h-screen items-center pt-28">
-      <div className="section-shell py-16">
-        <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+    <section id="home" className="section-anchor flex min-h-screen items-center pt-28 lg:pt-32">
+      <div className="section-shell py-16 lg:py-20">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 xl:gap-16">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -42,7 +42,7 @@ export function HeroSection() {
           >
             <motion.div
               variants={slideFromLeft}
-              className="inline-flex items-center gap-3 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-100"
+              className="theme-accent-chip inline-flex items-center gap-3 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em]"
             >
               <Sparkles size={16} />
               {profile.goal}
@@ -53,12 +53,12 @@ export function HeroSection() {
               className="mt-8 min-h-7 text-sm font-semibold uppercase tracking-[0.34em] text-[var(--text-muted)]"
             >
               {typedPhrase}
-              <span className="ml-1 inline-block h-5 w-px animate-pulse bg-cyan-100 align-middle" />
+              <span className="ml-1 inline-block h-5 w-px animate-pulse bg-[var(--accent-text)] align-middle" />
             </motion.p>
 
             <motion.h1
               variants={fadeUp}
-              className="mt-5 font-display text-5xl leading-[0.96] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl"
+              className="mt-5 font-display text-4xl leading-[0.96] tracking-[-0.04em] text-[var(--text-heading)] sm:text-4xl lg:text-4xl"
             >
               {profile.heroTitle.split('automation').map((part, index, parts) => (
                 <span key={`${part}-${index}`}>
@@ -82,7 +82,7 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 transition-transform duration-300 hover:-translate-y-1"
+                className="theme-primary-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:-translate-y-1"
               >
                 Explore Projects
                 <ArrowRight size={16} />
@@ -90,7 +90,7 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm text-slate-100 transition-transform duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-cyan-300/8"
+                className="theme-outline-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm transition-transform duration-300 hover:-translate-y-1"
               >
                 Contact Me
                 <ArrowRight size={16} />
@@ -111,11 +111,11 @@ export function HeroSection() {
               className="mt-8 flex flex-wrap items-center gap-5 text-sm text-[var(--text-muted)]"
             >
               <span className="inline-flex items-center gap-2">
-                <MapPin size={16} className="text-cyan-200" />
+                <MapPin size={16} className="text-[var(--accent-text)]" />
                 {profile.location}
               </span>
               <span className="inline-flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-300" />
+                <CheckCircle2 size={16} className="text-[var(--success-text)]" />
                 {profile.availability}
               </span>
             </motion.div>
@@ -130,21 +130,21 @@ export function HeroSection() {
             <GlassPanel className="card-shine rounded-[2rem] p-6 sm:p-7">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/70">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-muted)]">
                     Quality Radar
                   </p>
-                  <h2 className="mt-2 font-display text-2xl text-white sm:text-3xl">
+                  <h2 className="mt-2 font-display text-2xl text-[var(--text-heading)] sm:text-3xl">
                     Release readiness board
                   </h2>
                 </div>
-                <div className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-200">
+                <div className="theme-success-pill rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.24em]">
                   Live QA
                 </div>
               </div>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm font-semibold text-white">Coverage blend</p>
+                <div className="theme-surface rounded-[1.6rem] p-5">
+                  <p className="text-sm font-semibold text-[var(--text-heading)]">Coverage blend</p>
                   <div className="mt-5 space-y-4">
                     <div>
                       <div className="mb-2 flex items-center justify-between text-xs text-[var(--text-muted)]">
@@ -185,8 +185,8 @@ export function HeroSection() {
                   </div>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm font-semibold text-white">Current focus</p>
+                <div className="theme-surface rounded-[1.6rem] p-5">
+                  <p className="text-sm font-semibold text-[var(--text-heading)]">Current focus</p>
                   <div className="mt-5 space-y-3">
                     {readinessPoints.map((item) => (
                       <div key={item} className="flex items-start gap-3">
@@ -205,10 +205,10 @@ export function HeroSection() {
                   return (
                     <div
                       key={area.title}
-                      className="rounded-[1.5rem] border border-white/10 bg-[var(--panel-soft)] p-5"
+                      className="theme-surface rounded-[1.5rem] p-5"
                     >
-                      <Icon size={18} className="text-cyan-200" />
-                      <p className="mt-4 text-sm font-semibold text-white">{area.title}</p>
+                      <Icon size={18} className="text-[var(--accent-text)]" />
+                      <p className="mt-4 text-sm font-semibold text-[var(--text-heading)]">{area.title}</p>
                       <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
                         {area.detail}
                       </p>
@@ -225,7 +225,7 @@ export function HeroSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+          className="mt-10 grid gap-4 lg:mt-14 sm:grid-cols-2 xl:grid-cols-4"
         >
           {stats.map((stat) => (
             <AnimatedStat key={stat.label} stat={stat} />

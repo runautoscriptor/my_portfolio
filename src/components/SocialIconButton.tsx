@@ -19,8 +19,8 @@ export function SocialIconButton({
   const Icon = iconMap[link.icon];
   const variantStyles =
     variant === 'solid'
-      ? 'bg-cyan-300 text-slate-950 hover:bg-cyan-200'
-      : 'border border-white/10 bg-white/5 text-slate-100 hover:border-cyan-300/30 hover:bg-cyan-300/10';
+      ? 'theme-primary-button'
+      : 'theme-outline-button';
 
   return (
     <a

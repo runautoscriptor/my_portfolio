@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer } from '../animations/variants';
 import { profile } from '../data/portfolio';
 
-const loaderTags = ['Manual QA', 'Automation', 'API Validation'];
+const loaderTags = ['Manual QA', 'Automation', 'API Testing'];
 
 export function LoaderScreen() {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(3,6,15,0.96)] px-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--overlay-strong)] px-4"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.45 } }}
     >
@@ -19,13 +19,13 @@ export function LoaderScreen() {
       >
         <motion.p
           variants={fadeUp}
-          className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-cyan-200/75"
+          className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-[var(--accent-muted)]"
         >
           {profile.role}
         </motion.p>
         <motion.h1
           variants={fadeUp}
-          className="font-display text-3xl leading-tight text-white sm:text-4xl"
+          className="font-display text-3xl leading-tight text-[var(--text-heading)] sm:text-4xl"
         >
           Loading the QA command center
         </motion.h1>
@@ -38,18 +38,15 @@ export function LoaderScreen() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-8">
-          <div className="loader-scan h-2 rounded-full bg-white/6" />
+          <div className="loader-scan h-2 rounded-full" />
         </motion.div>
 
         <motion.div
           variants={fadeUp}
-          className="mt-7 grid gap-3 text-xs uppercase tracking-[0.22em] text-slate-300 sm:grid-cols-3"
+          className="mt-7 grid gap-3 text-xs uppercase tracking-[0.22em] text-[var(--text-subtle)] sm:grid-cols-3"
         >
           {loaderTags.map((tag) => (
-            <div
-              key={tag}
-              className="rounded-full border border-white/10 bg-white/4 px-4 py-3"
-            >
+            <div key={tag} className="theme-chip rounded-full px-4 py-3">
               {tag}
             </div>
           ))}
