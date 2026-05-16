@@ -79,6 +79,9 @@
   --success-surface: rgba(110, 231, 183, 0.1);
   --success-border: rgba(110, 231, 183, 0.18);
   --success-text: #d1fae5;
+  --error-surface: rgba(248, 113, 113, 0.1);
+  --error-border: rgba(248, 113, 113, 0.22);
+  --error-text: #fecaca;
   --decor-primary: rgba(56, 189, 248, 0.2);
   --decor-secondary: rgba(94, 234, 212, 0.1);
   --decor-tertiary: rgba(14, 165, 233, 0.08);
@@ -157,6 +160,9 @@
   --success-surface: rgba(16, 185, 129, 0.12);
   --success-border: rgba(5, 150, 105, 0.16);
   --success-text: #047857;
+  --error-surface: rgba(239, 68, 68, 0.1);
+  --error-border: rgba(220, 38, 38, 0.16);
+  --error-text: #b91c1c;
   --decor-primary: rgba(14, 165, 233, 0.18);
   --decor-secondary: rgba(20, 184, 166, 0.1);
   --decor-tertiary: rgba(56, 189, 248, 0.08);
@@ -452,6 +458,19 @@ textarea {
 .theme-input:focus {
   border-color: var(--border-strong);
   background: var(--surface-input-focus);
+}
+
+.theme-input-error {
+  border-color: var(--error-border);
+  box-shadow: 0 0 0 1px var(--error-border);
+}
+
+.theme-feedback-success {
+  color: var(--success-text);
+}
+
+.theme-feedback-error {
+  color: var(--error-text);
 }
 
 @keyframes shimmer {

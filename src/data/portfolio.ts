@@ -60,8 +60,11 @@ export interface ProjectItem {
 export interface CertificationItem {
   title: string;
   issuer: string;
-  year: string;
+  issuedDate: string;
   status: string;
+  track: string;
+  keyLearning: string;
+  tags: string[];
   link: string;
 }
 
@@ -273,22 +276,61 @@ export const certifications: CertificationItem[] = [
   {
     title: 'Playwright Automation Testing Track',
     issuer: 'QA Learning Studio',
-    year: '2025',
+    issuedDate: 'Issued Jan 2025',
     status: 'Completed',
+    track: 'QA Automation',
+    keyLearning: 'Built practical Playwright knowledge around end-to-end browser automation, selectors, assertions, and regression-friendly test structure.',
+    tags: ['Playwright', 'Automation', 'Regression'],
     link: 'https://github.com/demo',
   },
   {
     title: 'Postman API Fundamentals',
     issuer: 'API Testing Academy',
-    year: '2024',
+    issuedDate: 'Issued Aug 2024',
     status: 'Completed',
+    track: 'API Testing',
+    keyLearning: 'Strengthened REST API validation skills through request workflows, assertions, environment variables, and response debugging.',
+    tags: ['Postman', 'REST APIs', 'Collections'],
     link: 'https://github.com/demo',
   },
   {
     title: 'Mobile Test Automation with Appium',
     issuer: 'Automation Practice Lab',
-    year: '2024',
+    issuedDate: 'Issued Nov 2024',
     status: 'Completed',
+    track: 'Mobile QA',
+    keyLearning: 'Focused on Appium-based mobile automation basics, device interaction flows, and repeatable smoke coverage for Android testing.',
+    tags: ['Appium', 'Mobile Testing', 'Smoke QA'],
     link: 'https://github.com/demo',
+  },
+  {
+    title: 'Introduction to Back-End Development',
+    issuer: 'Coursera',
+    issuedDate: 'Issued Nov 2023',
+    status: 'Completed',
+    track: 'Developer Foundations',
+    keyLearning: 'Built stronger understanding of servers, databases, APIs, and the backend concepts that influence test strategy and defect analysis.',
+    tags: ['Back-End', 'APIs', 'Databases'],
+    link: 'https://www.coursera.org/',
+  },
+  {
+    title: 'Introduction to Front-End Development',
+    issuer: 'Coursera',
+    issuedDate: 'Issued Nov 2023',
+    status: 'Completed',
+    track: 'Developer Foundations',
+    keyLearning: 'Improved knowledge of HTML, CSS, JavaScript, and interface behavior so QA coverage can better align with real frontend implementation.',
+    tags: ['JavaScript', 'HTML', 'CSS'],
+    link: 'https://www.coursera.org/',
+  },
+  {
+    title: 'Full Stack Software Developer Assessment',
+    issuer: 'Coursera',
+    issuedDate: 'Issued Oct 2023',
+    status: 'Completed',
+    track: 'Developer Foundations',
+    keyLearning: 'Connected frontend and backend concepts into a fuller product view, helping bridge QA thinking with developer workflows and system behavior.',
+    tags: ['Full Stack', 'Web Apps', 'Developer Workflow'],
+    link: 'https://www.coursera.org/',
   },
 ];

@@ -5,7 +5,6 @@ import { fadeUp, staggerContainer } from '../animations/variants';
 import { projects } from '../data/portfolio';
 import { GlassPanel } from './GlassPanel';
 import { SectionHeading } from './SectionHeading';
-import { resume } from 'react-dom/server';
 
 const codingProfiles: {
   title: string;
@@ -142,10 +141,10 @@ export function ProjectsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.18 }}
-            className="hidden xl:flex"
+            className="flex xl:self-start"
           >
             <GlassPanel className="relative rounded-[2rem] p-6 sm:p-7">
-              <div className="max-w-xl">
+              <div className="max-w-xl xl:max-w-none">
                 <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--accent-muted)]">
                   Consistency Over Time
                 </p>
@@ -156,7 +155,7 @@ export function ProjectsSection() {
                   Daily problem solving & continuous learning that shows my growth toward Automation QA.
                 </p>
 
-                <div className="mt-8 space-y-4">
+                <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-1">
                   {codingProfiles.map(({ title, stat, description, href, icon: Icon }) => (
                     <motion.article
                       key={title}

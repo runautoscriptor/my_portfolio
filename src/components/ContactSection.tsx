@@ -1,7 +1,8 @@
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
-import type { FormEvent } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import { fadeUp, staggerContainer } from '../animations/variants';
 import { profile, socialLinks } from '../data/portfolio';
 import { GlassPanel } from './GlassPanel';
@@ -14,21 +15,142 @@ const initialFormState = {
   message: '',
 };
 
+const EMAILJS_CONFIG = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim() ?? '',
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim() ?? '',
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim() ?? '',
+};
+
+const MISSING_EMAILJS_KEYS = [
+  ['VITE_EMAILJS_SERVICE_ID', EMAILJS_CONFIG.serviceId],
+  ['VITE_EMAILJS_TEMPLATE_ID', EMAILJS_CONFIG.templateId],
+  ['VITE_EMAILJS_PUBLIC_KEY', EMAILJS_CONFIG.publicKey],
+]
+  .filter(([, value]) => !value)
+  .map(([key]) => key);
+
+const DEFAULT_FEEDBACK =
+  'Messages are delivered directly to my inbox via EmailJS.';
+
+type ContactField = keyof typeof initialFormState;
+type ContactFormState = typeof initialFormState;
+type ContactErrors = Partial<Record<ContactField, string>>;
+
+function validateContactForm(formState: ContactFormState): ContactErrors {
+  const nextErrors: ContactErrors = {};
+  const trimmedName = formState.name.trim();
+  const trimmedEmail = formState.email.trim();
+  const trimmedMessage = formState.message.trim();
+
+  if (!trimmedName) {
+    nextErrors.name = 'Please enter your name.';
+  } else if (trimmedName.length < 2) {
+    nextErrors.name = 'Name should be at least 2 characters.';
+  }
+
+  if (!trimmedEmail) {
+    nextErrors.email = 'Please enter your email address.';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+    nextErrors.email = 'Please enter a valid email address.';
+  }
+
+  if (!trimmedMessage) {
+    nextErrors.message = 'Please share a short message.';
+  } else if (trimmedMessage.length < 20) {
+    nextErrors.message = 'Message should be at least 20 characters.';
+  }
+
+  return nextErrors;
+}
+
 export function ContactSection() {
   const [formState, setFormState] = useState(initialFormState);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedbackState, setFeedbackState] = useState<'idle' | 'success' | 'error'>('idle');
+  const [feedbackMessage, setFeedbackMessage] = useState(DEFAULT_FEEDBACK);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleFieldChange =
+    (field: ContactField) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const nextValue = event.target.value;
+
+      setFormState((currentState) => ({
+        ...currentState,
+        [field]: nextValue,
+      }));
+
+      setErrors((currentErrors) => {
+        if (!currentErrors[field]) {
+          return currentErrors;
+        }
+
+        const nextErrors = { ...currentErrors };
+        delete nextErrors[field];
+        return nextErrors;
+      });
+
+      if (feedbackState !== 'idle') {
+        setFeedbackState('idle');
+        setFeedbackMessage(DEFAULT_FEEDBACK);
+      }
+    };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${formState.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`,
-    );
+    const nextErrors = validateContactForm(formState);
 
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setIsSubmitted(true);
-    setFormState(initialFormState);
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      setFeedbackState('error');
+      setFeedbackMessage('Please correct the highlighted fields before sending.');
+      return;
+    }
+
+    if (MISSING_EMAILJS_KEYS.length > 0) {
+      setFeedbackState('error');
+      setFeedbackMessage(
+        `Email delivery is not configured yet. Missing ${MISSING_EMAILJS_KEYS.join(', ')}. If you just added them, restart npm run dev.`,
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        {
+          from_name: formState.name.trim(),
+          from_email: formState.email.trim(),
+          reply_to: formState.email.trim(),
+          subject: `Portfolio inquiry from ${formState.name.trim()}`,
+          message: formState.message.trim(),
+          to_name: profile.name,
+          to_email: profile.email,
+        },
+        {
+          publicKey: EMAILJS_CONFIG.publicKey,
+          limitRate: {
+            id: 'portfolio-contact-form',
+            throttle: 15000,
+          },
+        },
+      );
+
+      setFeedbackState('success');
+      setFeedbackMessage('Message sent successfully. I will receive it by email.');
+      setErrors({});
+      setFormState(initialFormState);
+    } catch (error) {
+      console.error('EmailJS send failed', error);
+      setFeedbackState('error');
+      setFeedbackMessage('Something went wrong while sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -111,15 +233,16 @@ export function ContactSection() {
                     required
                     type="text"
                     value={formState.name}
-                    onChange={(event) =>
-                      setFormState((currentState) => ({
-                        ...currentState,
-                        name: event.target.value,
-                      }))
-                    }
+                    onChange={handleFieldChange('name')}
                     placeholder="Your name"
-                    className="theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none"
+                    aria-invalid={Boolean(errors.name)}
+                    className={`theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none ${
+                      errors.name ? 'theme-input-error' : ''
+                    }`}
                   />
+                  {errors.name ? (
+                    <span className="theme-feedback-error mt-2 block text-xs">{errors.name}</span>
+                  ) : null}
                 </label>
 
                 <label className="block">
@@ -128,15 +251,16 @@ export function ContactSection() {
                     required
                     type="email"
                     value={formState.email}
-                    onChange={(event) =>
-                      setFormState((currentState) => ({
-                        ...currentState,
-                        email: event.target.value,
-                      }))
-                    }
+                    onChange={handleFieldChange('email')}
                     placeholder="you@example.com"
-                    className="theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none"
+                    aria-invalid={Boolean(errors.email)}
+                    className={`theme-input w-full rounded-2xl px-4 py-3 text-sm outline-none ${
+                      errors.email ? 'theme-input-error' : ''
+                    }`}
                   />
+                  {errors.email ? (
+                    <span className="theme-feedback-error mt-2 block text-xs">{errors.email}</span>
+                  ) : null}
                 </label>
               </div>
 
@@ -146,30 +270,38 @@ export function ContactSection() {
                   required
                   rows={6}
                   value={formState.message}
-                  onChange={(event) =>
-                    setFormState((currentState) => ({
-                      ...currentState,
-                      message: event.target.value,
-                    }))
-                  }
+                  onChange={handleFieldChange('message')}
                   placeholder="Tell me about the role, team, or QA challenge you have in mind."
-                  className="theme-input w-full resize-none rounded-[1.6rem] px-4 py-3 text-sm leading-7 outline-none"
+                  aria-invalid={Boolean(errors.message)}
+                  className={`theme-input w-full resize-none rounded-[1.6rem] px-4 py-3 text-sm leading-7 outline-none ${
+                    errors.message ? 'theme-input-error' : ''
+                  }`}
                 />
+                {errors.message ? (
+                  <span className="theme-feedback-error mt-2 block text-xs">{errors.message}</span>
+                ) : null}
               </label>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="theme-primary-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:-translate-y-1"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send size={16} />
                 </button>
 
-                <p className="text-sm text-[var(--text-muted)]">
-                  {isSubmitted
-                    ? 'Your email client should open with a prefilled message.'
-                    : 'This form uses a mailto flow for quick demo handoff.'}
+                <p
+                  className={`text-sm ${
+                    feedbackState === 'success'
+                      ? 'theme-feedback-success'
+                      : feedbackState === 'error'
+                        ? 'theme-feedback-error'
+                        : 'text-[var(--text-muted)]'
+                  }`}
+                >
+                  {feedbackMessage}
                 </p>
               </div>
             </form>
