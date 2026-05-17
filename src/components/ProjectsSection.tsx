@@ -3,6 +3,7 @@ import type { LucideIcon } from 'lucide-react';
 import { ArrowUpRight, Code2, GitBranch, Layers, Terminal, Users } from 'lucide-react';
 import { fadeUp, staggerContainer } from '../animations/variants';
 import { profile, projects } from '../data/portfolio';
+import { useResumeUrl } from '../hooks/useResumeUrl';
 import { GlassPanel } from './GlassPanel';
 import { SectionHeading } from './SectionHeading';
 
@@ -58,6 +59,16 @@ const codingProfiles: {
   ];
 
 export function ProjectsSection() {
+  const resumeUrl = useResumeUrl();
+  const profileLinks = codingProfiles.map((item) =>
+    item.title === 'My Resume'
+      ? {
+          ...item,
+          href: resumeUrl,
+        }
+      : item,
+  );
+
   return (
     <section id="projects" className="section-anchor py-24 lg:py-28">
       <div className="section-shell">
@@ -156,7 +167,7 @@ export function ProjectsSection() {
                 </p>
 
                 <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-1">
-                  {codingProfiles.map(({ title, stat, description, href, icon: Icon }) => (
+                  {profileLinks.map(({ title, stat, description, href, icon: Icon }) => (
                     <motion.article
                       key={title}
                       whileHover={{ y: -6, scale: 1.01 }}

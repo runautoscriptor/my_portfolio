@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fadeUp } from '../animations/variants';
 import { navItems, profile } from '../data/portfolio';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { useResumeUrl } from '../hooks/useResumeUrl';
 import { ThemeToggle } from './ThemeToggle';
 
 const sectionIds = navItems.map((item) => item.id);
@@ -16,6 +17,7 @@ export function Header() {
   const pendingTimeoutRef = useRef<number | null>(null);
   const headerPanelRef = useRef<HTMLDivElement | null>(null);
   const observedSection = useActiveSection(sectionIds);
+  const resumeUrl = useResumeUrl();
   const activeSection = pendingSection ?? observedSection;
 
   useEffect(() => {
@@ -152,7 +154,7 @@ export function Header() {
 
             <div className="hidden items-center justify-self-end gap-2 lg:flex">
               <a
-                href={profile.resumeUrl}
+                href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="theme-outline-button rounded-full px-4 py-2 text-sm font-medium transition-transform duration-300 hover:-translate-y-1"
@@ -204,7 +206,7 @@ export function Header() {
                     );
                   })}
                   <a
-                    href={profile.resumeUrl}
+                    href={resumeUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="theme-accent-chip block rounded-2xl px-4 py-3 text-sm"
