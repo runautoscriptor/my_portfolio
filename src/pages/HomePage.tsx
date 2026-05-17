@@ -1,6 +1,7 @@
 import { AboutSection } from '../components/AboutSection';
 import { CertificationsSection } from '../components/CertificationsSection';
 import { ContactSection } from '../components/ContactSection';
+import { EducationSection } from '../components/EducationSection';
 import { ExperienceSection } from '../components/ExperienceSection';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -15,6 +16,7 @@ export function HomePage() {
       <main className="pb-4 lg:pb-6">
         <HeroSection />
         <AboutSection />
+        <EducationSection />
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />

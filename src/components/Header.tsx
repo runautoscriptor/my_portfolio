@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { fadeUp } from '../animations/variants';
-import { navItems, profile, socialLinks } from '../data/portfolio';
+import { navItems, profile } from '../data/portfolio';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -151,17 +151,14 @@ export function Header() {
             </nav>
 
             <div className="hidden items-center justify-self-end gap-2 lg:flex">
-              {socialLinks.slice(0, 2).map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="theme-outline-button rounded-full px-4 py-2 text-sm transition-transform duration-300 hover:-translate-y-1"
-                >
-                  {link.label}
-                </a>
-              ))}
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="theme-outline-button rounded-full px-4 py-2 text-sm font-medium transition-transform duration-300 hover:-translate-y-1"
+              >
+                Resume
+              </a>
               <ThemeToggle />
             </div>
 
@@ -207,12 +204,12 @@ export function Header() {
                     );
                   })}
                   <a
-                    href={socialLinks[0].href}
+                    href={profile.resumeUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="theme-accent-chip block rounded-2xl px-4 py-3 text-sm"
                   >
-                    GitHub
+                    Resume
                   </a>
                 </div>
               </motion.div>

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { ArrowUpRight, Code2, GitBranch, Layers, Terminal, Users } from 'lucide-react';
 import { fadeUp, staggerContainer } from '../animations/variants';
-import { projects } from '../data/portfolio';
+import { profile, projects } from '../data/portfolio';
 import { GlassPanel } from './GlassPanel';
 import { SectionHeading } from './SectionHeading';
 
@@ -52,7 +52,7 @@ const codingProfiles: {
       title: 'My Resume',
       stat: 'Downloadable PDF',
       description: 'Downloadable PDF showcasing my QA journey.',
-      href: 'https://flowcv.com/resume/1pf3hf8onb',
+      href: profile.resumeUrl,
       icon: ArrowUpRight,
     },
   ];

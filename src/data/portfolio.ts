@@ -45,6 +45,13 @@ export interface ExperienceItem {
   stack: string[];
 }
 
+export interface EducationItem {
+  year: string;
+  course: string;
+  institution: string;
+  learning: string;
+}
+
 export interface ProjectItem {
   title: string;
   summary: string;
@@ -75,6 +82,7 @@ export const profile = {
   experience: '1+ years',
   location: 'Noida, India',
   email: 'vikaskumarsinghqa@gmail.com',
+  resumeUrl: 'https://flowcv.com/resume/1pf3hf8onb',
   heroTitle: 'I build release confidence through sharp testing instincts and scalable QA automation.',
   heroSummary:
     'Software Test Engineer with hands-on experience across manual, automation, mobile, and API testing. Focused on growing into an advanced Automation QA Engineer who ships quality at speed.',
@@ -85,6 +93,7 @@ export const profile = {
 export const navItems: NavItem[] = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
@@ -166,6 +175,30 @@ export const aboutTimeline: TimelineItem[] = [
     title: 'Evolving into advanced Automation QA',
     description:
       'Deepening framework design, CI-ready automation thinking, and quality engineering practices for end-to-end release acceleration.',
+  },
+];
+
+export const educationItems: EducationItem[] = [
+  {
+    year: '2024',
+    course: 'B.Tech, Computer Science and Engineering',
+    institution: 'Dr. A.P.J. Abdul Kalam Technical University',
+    learning:
+      'Built a strong foundation in data structures, algorithms, and object-oriented programming with a CGPA of 7.69/10.',
+  },
+  {
+    year: '2020',
+    course: '12th, Science',
+    institution: 'Maharshi Dayanand Vidyapeeth, Govindpuram, Ghaziabad, Uttar Pradesh',
+    learning:
+      'Strengthened analytical thinking and core science fundamentals, completing UP Board with 77%.',
+  },
+  {
+    year: '2018',
+    course: '10th, Science',
+    institution: 'MMHV Inter College, Ghaziabad, Uttar Pradesh',
+    learning:
+      'Built disciplined study habits and a dependable academic base, completing UP Board with 78%.',
   },
 ];
 
