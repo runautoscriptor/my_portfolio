@@ -242,8 +242,8 @@ export const projects: ProjectItem[] = [
     metrics: ['Cross-browser runs', 'Reusable page object model', 'Environment-aware test execution'],
     tags: ['Playwright', 'Automation Framework', 'Regression QA'],
     links: {
-      caseStudy: 'https://linkedin.com/in/demo',
-      source: 'https://github.com/demo',
+      caseStudy: 'https://linkedin.com/in/vikaskumarsingh24/',
+      source: 'https://github.com/vikaskumarsingh20',
     },
   },
   {
@@ -254,8 +254,8 @@ export const projects: ProjectItem[] = [
     metrics: ['REST endpoint checks', 'Environment-based collections', 'Response and status assertions'],
     tags: ['Postman', 'REST APIs', 'QA Workflow'],
     links: {
-      caseStudy: 'https://linkedin.com/in/demo',
-      source: 'https://github.com/demo',
+      caseStudy: 'https://linkedin.com/in/vikaskumarsingh24/',
+      source: 'https://github.com/vikaskumarsingh20',
     },
   },
   {
@@ -266,8 +266,8 @@ export const projects: ProjectItem[] = [
     metrics: ['Critical journey coverage', 'Smoke automation flows', 'Reusable device test setup'],
     tags: ['Appium', 'Mobile QA', 'Smoke Testing'],
     links: {
-      caseStudy: 'https://linkedin.com/in/demo',
-      source: 'https://github.com/demo',
+      caseStudy: 'https://linkedin.com/in/vikaskumarsingh24/',
+      source: 'https://github.com/vikaskumarsingh20',
     },
   },
 ];
@@ -281,7 +281,7 @@ export const certifications: CertificationItem[] = [
     track: 'QA Automation',
     keyLearning: 'Built practical Playwright knowledge around end-to-end browser automation, selectors, assertions, and regression-friendly test structure.',
     tags: ['Playwright', 'Automation', 'Regression'],
-    link: 'https://github.com/demo',
+    link: 'https://github.com/vikaskumarsingh20',
   },
   {
     title: 'Postman API Fundamentals',
@@ -291,7 +291,7 @@ export const certifications: CertificationItem[] = [
     track: 'API Testing',
     keyLearning: 'Strengthened REST API validation skills through request workflows, assertions, environment variables, and response debugging.',
     tags: ['Postman', 'REST APIs', 'Collections'],
-    link: 'https://github.com/demo',
+    link: 'https://github.com/vikaskumarsingh20',
   },
   {
     title: 'Mobile Test Automation with Appium',
@@ -301,7 +301,7 @@ export const certifications: CertificationItem[] = [
     track: 'Mobile QA',
     keyLearning: 'Focused on Appium-based mobile automation basics, device interaction flows, and repeatable smoke coverage for Android testing.',
     tags: ['Appium', 'Mobile Testing', 'Smoke QA'],
-    link: 'https://github.com/demo',
+    link: 'https://github.com/vikaskumarsingh20',
   },
   {
     title: 'Introduction to Back-End Development',
@@ -311,7 +311,7 @@ export const certifications: CertificationItem[] = [
     track: 'Developer Foundations',
     keyLearning: 'Built stronger understanding of servers, databases, APIs, and the backend concepts that influence test strategy and defect analysis.',
     tags: ['Back-End', 'APIs', 'Databases'],
-    link: 'https://www.coursera.org/',
+    link: 'https://www.coursera.org/account/accomplishments/verify/BTY868JW6QYP',
   },
   {
     title: 'Introduction to Front-End Development',
@@ -321,7 +321,7 @@ export const certifications: CertificationItem[] = [
     track: 'Developer Foundations',
     keyLearning: 'Improved knowledge of HTML, CSS, JavaScript, and interface behavior so QA coverage can better align with real frontend implementation.',
     tags: ['JavaScript', 'HTML', 'CSS'],
-    link: 'https://www.coursera.org/',
+    link: 'https://www.coursera.org/account/accomplishments/verify/UPAY4Q6LW9QZ',
   },
   {
     title: 'Full Stack Software Developer Assessment',
@@ -331,6 +331,6 @@ export const certifications: CertificationItem[] = [
     track: 'Developer Foundations',
     keyLearning: 'Connected frontend and backend concepts into a fuller product view, helping bridge QA thinking with developer workflows and system behavior.',
     tags: ['Full Stack', 'Web Apps', 'Developer Workflow'],
-    link: 'https://www.coursera.org/',
+    link: 'https://www.coursera.org/account/accomplishments/verify/HLB4H45DQTT6',
   },
 ];

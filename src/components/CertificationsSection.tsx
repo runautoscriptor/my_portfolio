@@ -71,15 +71,13 @@ export function CertificationsSection() {
                   ))}
                 </div>
 
-                <a
-                  href={certification.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="theme-outline-button mt-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-transform duration-300 hover:translate-x-1"
+                <button
+                  onClick={() => window.open(certification.link, '_blank')}
+                  className="theme-outline-button cursor-pointer mt-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-transform duration-300 hover:translate-x-1"
                 >
                   Show credential
                   <ArrowUpRight size={16} />
-                </a>
+                </button>
               </GlassPanel>
             </motion.article>
           ))}
