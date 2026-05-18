@@ -82,7 +82,7 @@ export const profile = {
   experience: '1+ years',
   location: 'Noida, India',
   email: 'vikaskumarsinghqa@gmail.com',
-  resumeUrl: 'https://flowcv.com/resume/1pf3hf8onb',
+  resumeUrl: 'https://drive.google.com/drive/folders/1mOG7oLa2q0OYcvAbm4fcuKPZaasDbTC4?usp=sharing',
   heroTitle: 'I build release confidence through sharp testing instincts and scalable QA automation.',
   heroSummary:
     'Software Test Engineer with hands-on experience across manual, automation, mobile, and API testing. Focused on growing into an advanced Automation QA Engineer who ships quality at speed.',
