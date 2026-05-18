@@ -7,7 +7,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="section-anchor py-24 lg:py-28">
+    <section id="experience" className="section-anchor scroll-mt-28 py-24 lg:scroll-mt-32 lg:py-28">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Experience"

@@ -31,7 +31,7 @@ export function HeroSection() {
   const typedPhrase = useTypingEffect(heroPhrases);
 
   return (
-    <section id="home" className="section-anchor flex min-h-screen items-center pt-28 lg:pt-32">
+    <section id="home" className="section-anchor scroll-mt-28 flex min-h-screen items-center pt-28 lg:scroll-mt-32 lg:pt-32">
       <div className="section-shell py-16 lg:py-20">
         <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 xl:gap-16">
           <motion.div

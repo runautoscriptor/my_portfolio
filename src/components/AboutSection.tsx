@@ -7,7 +7,7 @@ import { SectionHeading } from './SectionHeading';
 
 export function AboutSection() {
   return (
-    <section id="about" className="section-anchor py-24 lg:py-28">
+    <section id="about" className="section-anchor scroll-mt-28 py-24 lg:scroll-mt-32 lg:py-28">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14 xl:gap-16 lg:text-lg  ">
         <motion.div
           variants={slideFromLeft}

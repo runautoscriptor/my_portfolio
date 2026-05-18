@@ -152,12 +152,12 @@ export function Header() {
               </div>
             </nav>
 
-            <div className="hidden items-center justify-self-end gap-2 lg:flex">
+            <div className="hidden items-center justify-self-end gap-1 lg:flex">
               <a
                 href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="theme-outline-button rounded-full px-4 py-2 text-sm font-medium transition-transform duration-300 hover:-translate-y-1"
+                className="theme-outline-button rounded-full px-2 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-1"
               >
                 Resume
               </a>

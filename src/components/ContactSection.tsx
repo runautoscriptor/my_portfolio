@@ -124,10 +124,17 @@ export function ContactSection() {
         EMAILJS_CONFIG.templateId,
         {
           from_name: formState.name.trim(),
+          user_name: formState.name.trim(),
+          sender_name: formState.name.trim(),
           from_email: formState.email.trim(),
+          user_email: formState.email.trim(),
+          sender_email: formState.email.trim(),
           reply_to: formState.email.trim(),
+          email: formState.email.trim(),
+          name: formState.name.trim(),
           subject: `Portfolio inquiry from ${formState.name.trim()}`,
           message: formState.message.trim(),
+          message_html: formState.message.trim(),
           to_name: profile.name,
           to_email: profile.email,
         },
@@ -154,7 +161,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-anchor py-24 pb-16 lg:py-28 lg:pb-20">
+    <section id="contact" className="section-anchor scroll-mt-28 py-24 pb-16 lg:scroll-mt-32 lg:py-28 lg:pb-20">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14 xl:gap-16">
         <motion.div
           variants={staggerContainer(0.12)}

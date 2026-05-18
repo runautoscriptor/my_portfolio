@@ -70,7 +70,7 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="section-anchor py-24 lg:py-28">
+    <section id="projects" className="section-anchor scroll-mt-28 py-24 lg:scroll-mt-32 lg:py-28">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Projects"
